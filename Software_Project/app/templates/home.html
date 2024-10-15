@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<body class="adminBody">
+    <div class="contents">
+        <div class="content-box">
+            <h2>Navigate Your Fitness Journey</h2>
+            <h3>Explore. Track. Conquer.</h3>
+            <a href="{{ url_for('login') }}" class="nav-button4">Start Now</a>
+        </div>
+    </div>
+    <div class="most-rated">
+        <div class="most-rated-box">
+            <div class="most-rated-title">
+                <h2>Features</h2>
+            </div>
+
+            <div class="most-rated-items">
+                <div class="most-rated-item">
+                    <div class="most-rated-image">
+                        <img src="{{ url_for('static', filename='images/track.png') }}" alt="Track check">
+                    </div>
+                    <div class="most-rated-body">
+                        <h4>Track Your Routes</h4>
+                        <p>Monitor your progress </p>
+                        <p>and explore new routes.</p>
+                    </div>
+                </div>
+                <div class="most-rated-item">
+                    <div class="most-rated-image">
+                        <img src="{{ url_for('static', filename='images/healthy.png') }}" alt="Health Icon">
+                    </div>
+                    <div class="most-rated-body">
+                        <h4>Stay Healthy</h4>
+                        <p>Keep track of your workouts</p>
+                        <p>and improve your fitness</p>
+                    </div>
+                </div>
+                <div class="most-rated-item">
+                    <div class="most-rated-image">
+                        <img src="{{ url_for('static', filename='images/friends.png') }}" alt="Friends Icon">
+                    </div>
+                    <div class="most-rated-body">
+                        <h4>Compete with Friends</h4>
+                        <p>Challenge your friends</p>
+                        <p>and compare achievements.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="our-services">
+        <div class="most-rated-title">
+            <h2>Pricing</h2>
+        </div>
+        <div class="our-services-box">
+
+            <div class="our-services-item">
+                <div class="our-services-icon">
+                    <h5 class="thisPrice">£2.99</h5>
+                </div>
+                <div class="our-services-body">
+                    <h3>Weekly</h3>
+                    <ul class="thisul">
+                        <li>Start with a trial-like period to explore all our features.</li>
+                        <li>Ideal for temporary needs.</li>
+                        <li>TSimple, pay-as-you-go access with no long-term commitment.</li>
+                    </ul>
+                    <a href="{{ url_for('register') }}" class="nav-button3">Sign Up</a>
+                </div>
+            </div>
+
+            <div class="our-services-item">
+                <div class="our-services-icon">
+                    <h5 class="thisPrice">£12.99</h5>
+                </div>
+                <div class="our-services-body">
+                    <h3>Monthly</h3>
+                    <ul class="thisul">
+                        <li>Great for regular users seeking flexibility.</li>
+                        <li>Monthly insights and analytics available.</li>
+                        <li>Receive monthly updates and improvements.</li>
+                    </ul>
+                    <a href="{{ url_for('register') }}" class="nav-button3">Sign Up</a>
+                </div>
+            </div>
+
+            <div class="our-services-item">
+                <div class="our-services-icon">
+                    <h5 class="thisPrice">£99.99</h5>
+                </div>
+                <div class="our-services-body">
+                    <h3>Annually</h3>
+                    <ul class="thisul">
+                        <li>Maximize savings with annual billing.</li>
+                        <li>Unlock full features, premium content, and exclusive tools.</li>
+                        <li>Exclusive access to beta features.</li>
+                    </ul>
+                    <a href="{{ url_for('register') }}" class="nav-button3">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-box">
+            <div class="footer-i f1">
+                <h4>Contact</h4>
+                <label>Street: Woodhouse lane</label><br>
+                <label>City: Leeds</label><br>
+                <label>PostCode: LS6 2PG</label><br>
+                <label>Phone Number: 8437879389</label><br>
+            </div>
+            <div class="footer-i f2">
+                <h4>Visit Us</h4>
+                <label>Getting Here</label><br>
+                <label>Our Supporters</label><br>
+                <label>Staff Directory</label><br>
+                <label>Current Season</label><br>
+            </div>
+            <div class="footer-i f3">
+                <h4>Contact</h4>
+                <label>Street: Woodhouse lane</label><br>
+                <label>City: Leeds</label><br>
+                <label>PostCode: LS6 2PG</label><br>
+                <label>Phone Number: 8437879389</label><br>
+            </div>
+            <div class="footer-i f4">
+                <h4>Visit Us</h4>
+                <label>Getting Here</label><br>
+                <label>Our Supporters</label><br>
+                <label>Staff Directory</label><br>
+                <label>Current Season</label><br>
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+
+
+    <script src="scripts.js"></script>
+</body>
+
+{% endblock %}

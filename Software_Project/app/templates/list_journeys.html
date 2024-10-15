@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+{% block navbar %}
+<nav id="navbar">
+    <a href="{{ url_for('upload_gps') }}" class="icon-button" title="Upload GPS Data">
+        <i class='bx bx-message-square-add'></i>
+    </a>
+    <a href="{{ url_for('friends') }}" class="icon-button" title="Friends">
+        <i class='bx bxs-group'></i>
+    </a>
+    <a href="{{ url_for('display_journeys') }}" class="icon-button" title="Display Journeys">
+        <i class='bx bx-trip'></i>
+    </a>
+    <button class="icon-button" onclick="SignUp()" title="Profile">
+        <i class="bx bx-user"></i>
+    </button>
+</nav>
+{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ff660028;
+        font-weight: 600;
+    }
+
+    .container1 {
+        border-radius: 20px;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        margin-left: 5%;
+        max-width: 1440px;
+        height: 70vh;
+        width: 90%;
+        background: white;
+        box-shadow: 2px 5px 10px black;
+    }
+</style>
+<div class="part1" id="part1">
+    <div class="container1">
+        <div class="table-container4">
+            <table class="thisTable">
+                <thead>
+                    <tr>
+                        <th>Journey Name</th>
+                        <th>Type</th>
+                        <th>Distance</th>
+                        <th>Duration</th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for journey in journeys %}
+                    <tr class="horizontal-border">
+                        <td>{{ journey.name }}</td>
+                        <td>
+                            {% if journey.type == 'running' %}
+                            <i class="bx bx-run" style="font-size: 24px;"></i> {{ journey.type
+                            }}<!-- Icon for running -->
+                            {% elif journey.type == 'cycling' %}
+                            <i class="bx bx-cycling" style="font-size: 24px;"></i> {{ journey.type
+                            }}<!-- Icon for cycling -->
+                            {% else %}
+                            {{ journey.type }} <!-- Displays the journey type as text if no icon is available -->
+                            {% endif %}
+                        </td>
+                        <td>{{ journey.calculate_distance() | round(2)}} km</td>
+                        <td>{{ (journey.calculate_duration() * 60) | round(2) }} Minutes</td>
+                        <td><a href="{{ url_for('view_journey', journey_id=journey.id) }}" class="btn btn-info btn-sm"
+                                style="text-decoration: none;">Details</a></td>
+                        <td>
+                            <form action="{{ url_for('delete_journey', journey_id=journey.id) }}" method="post">
+                                <input type="submit" value="Delete" class="btn btn-info2 btn-sm"
+                                    style="text-decoration: none;">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr class="horizontal-border">
+                        <td colspan="5">No journeys found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
